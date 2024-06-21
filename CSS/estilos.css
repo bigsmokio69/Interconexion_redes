@@ -1,0 +1,27 @@
+#nav_genRep{
+    background-color: #142344;
+    
+}
+#titleGenRep{
+    color: #fff;
+    align-content: center;
+}
+
+#frm_genRep{
+    align-content: center;
+}
+
+#cardenal_casco{
+    width: 75%;
+    height: 75%;
+}
+
+.lbl{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: large;
+}
+
+.links{
+    color: blue;
+    text-decoration: underline;
+}
