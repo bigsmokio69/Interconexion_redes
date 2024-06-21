@@ -1,0 +1,317 @@
+:root{/*Seudo-elemento*/
+    --blanco: #ffffff;
+    --negro: #212121;
+    --primario: #f1c420;
+    --secundario: rgba(15, 85, 181, 0.807);
+    --gris: #757575;
+    --grisClaro: #dfe9f3;
+}
+/* Globales */
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;/*Box model*/
+    scroll-snap-type: y mandatory ;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+  }
+body{
+    font-size: 16px;/* 1rem = 10px */
+    font-family: 'Nunito', sans-serif;
+    /* background-image: linear-gradient(to top, var(--grisClaro)30%,var(--primario) 50%, var(--blanco) 80%); */
+}
+.contenedor{
+    max-width: 120rem;
+    margin: 0 auto; /*Este margin resume los 4 margin especificos que puedes poner, el orden es arriba, derecha, abajo y izquierda, si solo pones dos es arriba/abajo y derecha/izquierda*/
+
+}
+.boton{
+    background-color: var(--secundario);
+    color: var(--blanco);
+    margin-top: 3rem;
+    padding: 1rem 3rem;
+    font-size: 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: .5rem;
+    width:90%;
+    text-align: center;
+    border: none;
+}
+.boton:hover{
+    cursor: pointer;
+}
+@media (min-width: 768px) {
+    .boton{
+        width: auto;
+    }
+}
+/* .sombra{
+    /*-webkit-box-shadow: 0px 0px 30px -8px rgba(0,0,0,0.75);Chrome
+    -moz-box-shadow: 0px 0px 30px -8px rgba(0,0,0,0.75);Firefox
+    Se utilizan para asegurar soporte en sus respectivos buscadores, aunque practicamente ya no sean nescesarios*
+    box-shadow: 0px 0px 30px -8px rgba(0,0,0,0.75);
+    background-color: var(--blanco);
+    padding: 2rem;
+} */
+
+/*scroll snap*/
+/* .servicios, .formulario, .navegacion-principal, .clientes, .descripciones{
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+} */
+
+
+/*Tipografia*/
+h1{
+    font-size: 3.8rem; 
+}
+h2{
+    font-size: 2.8rem; 
+}
+h3{
+    font-size: 1.8rem; 
+}
+h1,h2,h3{
+    text-align: center;
+}
+/*
+Aunque no es nescesario, se puede generalizar las etiquetas principales
+*/
+
+/*Header*/
+header{
+    background-color: blue;
+    color: var(--blanco);
+    padding: 5rem;
+    text-align: center;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    position: relative;
+}
+header div:first-child{
+    position: absolute;
+    left: 20px;
+}
+header div:nth-child(2){
+    flex: 1;
+    text-align: center;
+}
+
+/*Titulos*/
+.titulo span{
+    font-size: 2rem;
+}
+/*Utilidades*/
+.w-pq-100{
+    width: 100%;
+}
+
+/*Navegacion*/
+/* .navegacion-bg{
+    background-color: var(--secundario);
+}
+.navegacion-principal{
+    display: flex;
+    flex-direction: column;    
+}
+@media (min-width: 768px) {
+    .navegacion-principal{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+.navegacion-principal a {
+    text-align: center;
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: 2rem;
+    padding: 1rem;
+}
+.navegacion-principal a:hover{  
+/*hover es cuando esta el puntero encima
+    background-color: var(--primario);
+    color: var(--negro);
+} 
+*/
+
+/*Imagen*/
+.hero{
+    background-image: url(../img/hero.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 450px;
+    position: relative;
+    margin-bottom: 2rem;
+}
+.contenido-hero{
+    position: absolute;
+    background-color: rgb(0,0,0,.7);/* Esta es la forma antigua*/
+    background-color: rgb(0 0 0 / 70%);/*Forma nueva, pero con menor soporte actual*/
+    width: 2rem;
+    height: 2rem;
+    width: 100%;
+    height: 100%;
+    /*Esta parte tambien puede hacerce con top, bottom, left y rigth*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.contenido-hero h2, .contenido-hero p{
+    color: var(--blanco);
+}
+.ubicacion{
+    display: flex;
+    align-items: flex-end;
+}
+
+/*Servicios*/
+@media (min-width: 768px) {
+    .servicios{
+        display: grid;
+        /*
+        grid-template-columns: 300px 300px;
+        grid-template-rows: 200px 800px;
+    
+        grid: 200px 800px / 300px 300px;
+    
+        Version grande y pequeña*/
+    
+        grid-template-columns: repeat(3, 1fr); /*se puede hacer tambien con % y sin repeat*/
+        grid-template-rows:auto;
+        column-gap: 1rem;   
+    }
+}
+
+@media (min-width: 768px) {
+    .clientes{
+        display: grid;  
+        grid-template-columns: repeat(3, 1fr); /*se puede hacer tambien con % y sin repeat*/
+        grid-template-rows: auto;
+        column-gap: 1rem;   
+        row-gap: 1rem;
+    }
+    /* .cliente:nth-child(4){
+        
+    } */
+}
+
+.servicio, .cliente{ 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.servicio h3, .cliente h3{
+    color: var(--secundario);
+}
+.servicio p, .cliente p{
+    line-height: 1.5;
+    text-align: center;
+}
+.servicio .iconos, .cliente .iconos{
+    height: 15rem;
+    width: 15rem;
+    background-color: var(--primario);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+/*Contacto*/
+.formulario{
+    background-color: var(--gris);
+    width: min(60rem,100%);/*Utiliza el valor mas pequeño, entre 60 rem y 100% de la pagina*/
+    margin: 0 auto;/*utilizar margin cuando sea un block y no cuente con un display: flex;*/
+    padding: 2rem;
+    border-radius: 1rem;
+}
+.formulario fieldset{
+    border: none;
+    
+}
+.formulario legend{
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--primario);
+}
+/*Campos*/
+@media (min-width: 768px) {
+    .contenedor-campos{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        /* grid-template-rows: auto auto 20rem; */
+        column-gap: 1rem;
+        row-gap: 1rem;
+    } 
+    .contenedor-campos_2{
+        display: grid;
+        grid-template-columns: 1;
+        grid-template-rows: repeat(4, auto);
+        /* grid-template-rows: auto auto 20rem; */
+        column-gap: 1rem;
+        row-gap: 1rem;
+    }
+    .campo:nth-child(3), .campo:nth-child(4){
+        grid-column: 1 / 3;
+    }
+    
+}
+
+.campo{
+margin-bottom: 1rem;
+}
+.campo textarea{
+    height: 3rem;
+    width: 20rem;
+
+}
+.campo label{
+color: var(--blanco);
+font-weight: bold;
+margin-bottom: .5rem;
+display:block
+}
+.input-text{
+width: 100%;
+border: none;
+padding: 1.5rem;
+border-radius: .5rem;
+}
+.descripciones{
+    margin: 5rem;
+}
+/*Footer*/
+.footer{
+    text-align: center;
+}
+/*Logo*/
+.logo{
+    width: 20rem;
+    height: auto;
+}
+/*Cardenal*/
+.cardenal{
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
+.contenedor_reportes{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+}
+.contenedor_form_resp{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    max-width: 40rem;
+}
