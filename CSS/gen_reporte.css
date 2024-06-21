@@ -1,0 +1,41 @@
+body {
+    margin: 0;
+    background-color: #efefef;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: rgb(21, 24, 48);
+    color: rgb(255, 255, 255);
+    padding: 1.5rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    text-align: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.consultar .index{
+    color: #01036e;
+    font-size: 1rem;
+}
+.index:hover{
+    text-decoration: underline;
+    color: #7f1830;
+}
+.consultar:hover{
+    text-decoration: underline;
+    color: #7f1830;
+}

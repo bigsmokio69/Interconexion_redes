@@ -1,0 +1,106 @@
+body {
+    margin: 0;
+    background-color: #efefef;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: rgb(21, 24, 48);
+    color: rgb(255, 255, 255);
+    padding: 1.5rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    text-align: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+/* Card */
+.card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 400px;
+}
+
+.card h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.card ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.card li {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    color: #555;
+}
+
+.card div {
+    margin-top: 0.5rem;
+}
+
+.card input {
+    width: calc(100% - 20px);
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.card input:focus {
+    border-color: #7f1830;
+    outline: none;
+}
+
+/* Custom button styles */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.custom-btn {
+    background-color: rgb(21, 24, 48); /* Cambia este valor al color que desees */
+    border-color: rgb(21, 24, 48); /* Cambia este valor al color que desees */
+    color: white; /* Color del texto */
+    text-decoration: none;
+    padding: 10px 20px; /* Tamaño del botón más grande */
+    border-radius: 0.5rem;
+    font-size: 1.1rem; /* Aumentar el tamaño del texto */
+}
+
+.custom-btn:hover {
+    background-color: #7f1830; /* Color del botón al pasar el mouse por encima */
+    border-color: #7f1830; /* Color del borde al pasar el mouse por encima */
+}
+
+.estudiante{
+    color: #01036e;
+    font-size: 1rem;
+}
+
+.estudiante:hover {
+    text-decoration: underline;
+    color: #7f1830;
+}
