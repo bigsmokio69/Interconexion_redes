@@ -17,7 +17,7 @@ header {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 0 1.5rem;
 }
@@ -27,14 +27,28 @@ header h1 {
     font-size: 2rem;
 }
 
+/* Content Container */
+.content-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+/* Image */
+.poloR {
+    width: 300px;
+    margin-right: 1rem; 
+}
+
 /* Card */
 .card {
     background-color: white;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 2rem;
-    margin: 2rem auto;
-    max-width: 400px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+    padding: 3rem; 
+    align-items: left;
+    max-width: 900px; 
 }
 
 .card h2 {
@@ -72,7 +86,7 @@ header h1 {
     outline: none;
 }
 
-/* Custom button styles */
+/* button styles */
 .button-container {
     display: flex;
     justify-content: space-between;
@@ -81,21 +95,22 @@ header h1 {
 }
 
 .custom-btn {
-    background-color: rgb(21, 24, 48); /* Cambia este valor al color que desees */
-    border-color: rgb(21, 24, 48); /* Cambia este valor al color que desees */
-    color: white; /* Color del texto */
+    background-color: rgb(21, 24, 48); 
+    border-color: rgb(21, 24, 48); 
+    color: white; 
     text-decoration: none;
-    padding: 10px 20px; /* Tamaño del botón más grande */
+    padding: 10px 20px; 
     border-radius: 0.5rem;
-    font-size: 1.1rem; /* Aumentar el tamaño del texto */
+    font-size: 1.1rem; 
+    text-align: center;
 }
 
 .custom-btn:hover {
-    background-color: #7f1830; /* Color del botón al pasar el mouse por encima */
-    border-color: #7f1830; /* Color del borde al pasar el mouse por encima */
+    background-color: #7f1830;
+    border-color: #7f1830;
 }
 
-.estudiante{
+.estudiante {
     color: #01036e;
     font-size: 1rem;
 }
