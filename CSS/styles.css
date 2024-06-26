@@ -82,14 +82,17 @@ Aunque no es nescesario, se puede generalizar las etiquetas principales
 
 /*Header*/
 header{
-    background-color: blue;
+    background-color: rgb(21, 24, 48);
     color: var(--blanco);
     padding: 5rem;
     text-align: center;
     display: flex;
     justify-content:center;
     align-items: center;
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
 }
 header div:first-child{
     position: absolute;
