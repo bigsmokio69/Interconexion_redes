@@ -1,10 +1,11 @@
 :root{/*Seudo-elemento*/
     --blanco: #ffffff;
     --negro: #212121;
-    --primario: #f1c420;
-    --secundario: rgba(15, 85, 181, 0.807);
+    --primario: rgb(21, 24, 48);
+    --secundario: #7f1830;
     --gris: #757575;
     --grisClaro: #dfe9f3;
+    --rojo:
 }
 /* Globales */
 html{
@@ -26,7 +27,7 @@ body{
 
 }
 .boton{
-    background-color: var(--secundario);
+    background-color: var(--primario);
     color: var(--blanco);
     margin-top: 3rem;
     padding: 1rem 3rem;
@@ -41,6 +42,8 @@ body{
 }
 .boton:hover{
     cursor: pointer;
+    background-color: var(--secundario);
+    color: var(--negro);
 }
 @media (min-width: 768px) {
     .boton{
@@ -226,10 +229,11 @@ header div:nth-child(2){
 }
 /*Contacto*/
 .formulario{
-    background-color: var(--gris);
+    background-color: var(--blanco);
     width: min(60rem,100%);/*Utiliza el valor mas pequeño, entre 60 rem y 100% de la pagina*/
     margin: 0 auto;/*utilizar margin cuando sea un block y no cuente con un display: flex;*/
     padding: 2rem;
+    border: 3px solid var(--negro);
     border-radius: 1rem;
 }
 .formulario fieldset{
@@ -276,7 +280,7 @@ margin-bottom: 1rem;
 
 }
 .campo label{
-color: var(--blanco);
+color: var(--negro);
 font-weight: bold;
 margin-bottom: .5rem;
 display:block
@@ -285,6 +289,7 @@ display:block
 width: 100%;
 border: none;
 padding: 1.5rem;
+border: 1px solid var(--negro);
 border-radius: .5rem;
 }
 .descripciones{
