@@ -26,6 +26,7 @@ body{
     margin: 0 auto; /*Este margin resume los 4 margin especificos que puedes poner, el orden es arriba, derecha, abajo y izquierda, si solo pones dos es arriba/abajo y derecha/izquierda*/
 
 }
+
 .boton{
     background-color: var(--primario);
     color: var(--blanco);
@@ -322,4 +323,73 @@ border-radius: .5rem;
     gap: 2rem;
     width: 100%;
     max-width: 40rem;
+}
+
+/*Pagina ordenes*/
+.contenedor_ordenes{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    height: 100%;
+}
+.contenedor_ordenes_principal{
+    flex: 1;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+.sidebar{
+    flex: 2;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+.Botones_ordenes{
+    margin-top: 2rem;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+ul li{
+    display:  inline-block;
+    position: relative;
+    padding: 1rem 1.5rem;
+    background-color: var(--primario);
+    cursor: pointer;
+    color: var(--blanco);
+}
+
+ul li:hover{
+    background-color: #ddd;
+}
+ul li:hover > ul{
+    display: block;
+}
+ul ul{
+    display: none;
+    position: absolute;
+    background-color: var(--primario);
+    border: 1px solid #ccc;
+    color: var(--blanco);
+    padding: 1rem;
+    left: 0;
+    top: 100%;
+    min-width: 40rem;
+}
+
+.cols{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+.col{
+    width: 48%;
+}
+.col ul{
+    padding-left: 2rem;
+}
+.calendario{
+    margin-top: 1rem;
+    border-top: 1px solid #ccc;
+    padding-top: 1rem;
 }

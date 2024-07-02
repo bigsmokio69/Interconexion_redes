@@ -40,122 +40,157 @@
     La seccion de main se utiliza para acomodar la parte principal de la pagina web
     -->
     <main class="contenedor">
+        <div class="Botones_ordenes">
+            <ul>
+                <li>Filtros
+                    <ul>
+                        <div class="cols">
+                            <div class="col">
+                                <h3>Filtro 1</h3>
+                                <ul>
+                                    <li><input type="checkbox" id="check1"><label for="check1">check 1</label></li>
+                                    <li><input type="checkbox" id="check2">check 2</li>
+                                    <li><input type="checkbox" id="check3">check 3</li>
+                                </ul>
+                            </div>
+                            <div class="col">
+                                <h3>Filtro 2</h3>
+                                <ul>
+                                    <li><input type="checkbox" id="check4">check 1</li>
+                                    <li><input type="checkbox" id="check5">check 2</li>
+                                    <li><input type="checkbox" id="check6">check 3</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="calendario">
+                            <h3>Calendario</h3>
+                        </div>
+    
+                    </li>
+                </ul>
+                <li>Sin filtros</li>
+                    </ul>
+        </div>
         <section>
-            <P></P>
-            <div class="">
-                <div class="contenedor_form_resp">
-                    <form class="formulario">
-                        <fieldset>
-                            <div class="contenedor-campos">
-                                <div class="campo">
-                                    <label>Laboratorio</label>
-                                    <!--text,tel,ratio,number,email-->
-                                    <input class="input-text" type="text" placeholder="Tu Nombre">
-                                    <label>NO.</label>
-                                    <textarea name="" id=""></textarea>
-                                    <label for="">Fecha</label>
-                                    <textarea name="" id=""></textarea>
-                                    <button>Detalles</button>
-                                    <textarea name="" id=""></textarea><!--Descripcion-->
-                                </div>
-                                <div class="campo">
-                                    <label>Número de reporte</label>
-                                    <input class="input-text" type="number" placeholder="Tu # de reporte">
-                                </div>
-                            </div><!--Contenedor de campos-->
-                        </fieldset>
-                    </form>
-                    <!--Formulario 1-->
-                    <form class="formulario">
-                        <fieldset>
-                            <div class="contenedor-campos">
-                                <div class="campo">
-                                    <label>Laboratorio</label>
-                                    <!--text,tel,ratio,number,email-->
-                                    <input class="input-text" type="text" placeholder="Tu Nombre">
-                                    <label>NO.</label>
-                                    <textarea name="" id=""></textarea>
-                                    <label for="">Fecha</label>
-                                    <textarea name="" id=""></textarea>
-                                    <button>Detalles</button>
-                                    <textarea name="" id=""></textarea><!--Descripcion-->
-                                </div>
-                                <div class="campo">
-                                    <label>Número de reporte</label>
-                                    <input class="input-text" type="number" placeholder="Tu # de reporte">
-                                </div>
-                            </div><!--Contenedor de campos-->
-                        </fieldset>
-                    </form>
-                    <!--Formulario 2-->
-                    <form class="formulario">
-                        <fieldset>
-                            <div class="contenedor-campos">
-                                <div class="campo">
-                                    <label>Laboratorio</label>
-                                    <!--text,tel,ratio,number,email-->
-                                    <input class="input-text" type="text" placeholder="Tu Nombre">
-                                    <label>NO.</label>
-                                    <textarea name="" id=""></textarea>
-                                    <label for="">Fecha</label>
-                                    <textarea name="" id=""></textarea>
-                                    <button>Detalles</button>
-                                    <textarea name="" id=""></textarea><!--Descripcion-->
-                                </div>
-                                <div class="campo">
-                                    <label>Número de reporte</label>
-                                    <input class="input-text" type="number" placeholder="Tu # de reporte">
-                                </div>
-                            </div><!--Contenedor de campos-->
-                        </fieldset>
-                    </form>
-                    <!--Formulario 3-->
-                    <form class="formulario">
-                        <fieldset>
-                            <div class="contenedor-campos">
-                                <div class="campo">
-                                    <label>Laboratorio</label>
-                                    <!--text,tel,ratio,number,email-->
-                                    <input class="input-text" type="text" placeholder="Tu Nombre">
-                                    <label>NO.</label>
-                                    <textarea name="" id=""></textarea>
-                                    <label for="">Fecha</label>
-                                    <textarea name="" id=""></textarea>
-                                    <button>Detalles</button>
-                                    <textarea name="" id=""></textarea><!--Descripcion-->
-                                </div>
-                                <div class="campo">
-                                    <label>Número de reporte</label>
-                                    <input class="input-text" type="number" placeholder="Tu # de reporte">
-                                </div>
-                            </div><!--Contenedor de campos-->
-                        </fieldset>
-                    </form>
-                    <!--Formulario 4-->
+            <P></P>      
+            <div class="contenedor_ordenes">
+                <div class="contenedor_ordenes_principal">
+                    <div class="contenedor_form_resp">
+                        <form class="formulario">
+                            <fieldset>
+                                <div class="contenedor-campos">
+                                    <div class="campo">
+                                        <label>Laboratorio</label>
+                                        <!--text,tel,ratio,number,email-->
+                                        <input class="input-text" type="text" placeholder="Tu Nombre">
+                                        <label>NO.</label>
+                                        <textarea name="" id=""></textarea>
+                                        <label for="">Fecha</label>
+                                        <textarea name="" id=""></textarea>
+                                        <button>Detalles</button>
+                                        <textarea name="" id=""></textarea><!--Descripcion-->
+                                    </div>
+                                    <div class="campo">
+                                        <label>Número de reporte</label>
+                                        <input class="input-text" type="number" placeholder="Tu # de reporte">
+                                    </div>
+                                </div><!--Contenedor de campos-->
+                            </fieldset>
+                        </form>
+                        <!--Formulario 1-->
+                        <form class="formulario">
+                            <fieldset>
+                                <div class="contenedor-campos">
+                                    <div class="campo">
+                                        <label>Laboratorio</label>
+                                        <!--text,tel,ratio,number,email-->
+                                        <input class="input-text" type="text" placeholder="Tu Nombre">
+                                        <label>NO.</label>
+                                        <textarea name="" id=""></textarea>
+                                        <label for="">Fecha</label>
+                                        <textarea name="" id=""></textarea>
+                                        <button>Detalles</button>
+                                        <textarea name="" id=""></textarea><!--Descripcion-->
+                                    </div>
+                                    <div class="campo">
+                                        <label>Número de reporte</label>
+                                        <input class="input-text" type="number" placeholder="Tu # de reporte">
+                                    </div>
+                                </div><!--Contenedor de campos-->
+                            </fieldset>
+                        </form>
+                        <!--Formulario 2-->
+                        <form class="formulario">
+                            <fieldset>
+                                <div class="contenedor-campos">
+                                    <div class="campo">
+                                        <label>Laboratorio</label>
+                                        <!--text,tel,ratio,number,email-->
+                                        <input class="input-text" type="text" placeholder="Tu Nombre">
+                                        <label>NO.</label>
+                                        <textarea name="" id=""></textarea>
+                                        <label for="">Fecha</label>
+                                        <textarea name="" id=""></textarea>
+                                        <button>Detalles</button>
+                                        <textarea name="" id=""></textarea><!--Descripcion-->
+                                    </div>
+                                    <div class="campo">
+                                        <label>Número de reporte</label>
+                                        <input class="input-text" type="number" placeholder="Tu # de reporte">
+                                    </div>
+                                </div><!--Contenedor de campos-->
+                            </fieldset>
+                        </form>
+                        <!--Formulario 3-->
+                        <form class="formulario">
+                            <fieldset>
+                                <div class="contenedor-campos">
+                                    <div class="campo">
+                                        <label>Laboratorio</label>
+                                        <!--text,tel,ratio,number,email-->
+                                        <input class="input-text" type="text" placeholder="Tu Nombre">
+                                        <label>NO.</label>
+                                        <textarea name="" id=""></textarea>
+                                        <label for="">Fecha</label>
+                                        <textarea name="" id=""></textarea>
+                                        <button>Detalles</button>
+                                        <textarea name="" id=""></textarea><!--Descripcion-->
+                                    </div>
+                                    <div class="campo">
+                                        <label>Número de reporte</label>
+                                        <input class="input-text" type="number" placeholder="Tu # de reporte">
+                                    </div>
+                                </div><!--Contenedor de campos-->
+                            </fieldset>
+                        </form>
+                        <!--Formulario 4-->
+                    </div>
+                    
                 </div>
+                <aside class="sidebar">
+                    <fieldset>
+                        <div class="contenedor-campos">
+                            <div class="campo">
+                                <label>Laboratorio</label>
+                                <!--text,tel,ratio,number,email-->
+                                <input class="input-text" type="text" placeholder="Tu Nombre">
+                                <label>NO.</label>
+                                <textarea name="" id=""></textarea>
+                                <label for="">Fecha</label>
+                                <textarea name="" id=""></textarea>
+                                <button>Detalles</button>
+                                <textarea name="" id=""></textarea><!--Descripcion-->
+                            </div>
+                            <div class="campo">
+                                <label>Número de reporte</label>
+                                <input class="input-text" type="number" placeholder="Tu # de reporte">
+                            </div>
+                        </div><!--Contenedor de campos-->
+                    </fieldset>
+                </aside>
             </div>
         </section>
-        <aside>
-            <fieldset>
-                <div class="contenedor-campos">
-                    <div class="campo">
-                        <label>Laboratorio</label>
-                        <!--text,tel,ratio,number,email-->
-                        <input class="input-text" type="text" placeholder="Tu Nombre">
-                        <label>NO.</label>
-                        <textarea name="" id=""></textarea>
-                        <label for="">Fecha</label>
-                        <textarea name="" id=""></textarea>
-                        <button>Detalles</button>
-                        <textarea name="" id=""></textarea><!--Descripcion-->
-                    </div>
-                    <div class="campo">
-                        <label>Número de reporte</label>
-                        <input class="input-text" type="number" placeholder="Tu # de reporte">
-                    </div>
-                </div><!--Contenedor de campos-->
-            </fieldset>
-        </aside>
+        
     </main>
     <!--
     El footer se utiliza para acomodar en la parte inferior de la pagina web
