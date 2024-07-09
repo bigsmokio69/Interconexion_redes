@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Reportes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/consultar_reporte.css') }}">
+</head>
+
+<body>
+    <header>
+        <div class="contenedor">
+            <div class="titulo">
+                <h1>¡Consulta tu reporte!</h1>
+            </div>
+            <div class="logo">
+                <img src="{{ url_for('static', filename='img/logo.png') }}" id="logo_header" alt="Logo">
+            </div>
+        </div>
+    </header>
+
+    <main class="contenedorg">
+        <section>
+            <div class="contenedor_reportes">
+                <img src="{{ url_for('static', filename='img/POLO_Reporte.png') }}" alt="" class="cardenal">
+                <div class="contenedor_form_resp">
+                    <form class="formulario sombra" method="POST" action="{{ url_for('Consultar_reporte') }}">
+                        <fieldset>
+                            <div class="contenedor-campos">
+                                <div class="campo">
+                                    <label>Nombre</label>
+                                    <input class="input-text" type="text" name="nombre" placeholder="Tu Nombre">
+                                </div>
+                                <div class="campo">
+                                    <label>Número de reporte</label>
+                                    <input class="input-text" type="number" name="reporte_id" placeholder="Tu # de reporte">
+                                </div>
+                            </div>
+                        </fieldset>
+                        <a href="{{ url_for('mostrar_formulario') }}">Generar nuevo reporte</a>
+                        <div class="flex">
+                            <input class="boton w-pq-100" type="submit" value="Consultar">
+                        </div>
+                    </form>
+
+                    {% if consultar_reporte %}
+                        <div class="contenedor-campos_2">
+                            <table>
+                                <tr>
+                                    <th>
+                                        <div class="campo">
+                                            <label>Reporte:</label>
+                                            <div>
+                                                {{ consultar_reporte[0][0] }}
+                                                <br>
+                                                {{ consultar_reporte[0][2] }}
+                                                <!--ID de reporte y descripción-->
+                                            </div>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <div class="campo">
+                                            <label>Nombre de quien hizo el reporte:</label>
+                                            <div>
+                                                {{ consultar_reporte[0][1] }}
+                                            </div>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <div class="campo">
+                                            <label>Estado de tu reporte</label>
+                                            <div>
+                                                {{ consultar_reporte[0][4] }}
+                                            </div>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <div class="campo">
+                                            <label>Quien atendió</label>
+                                            <div>
+                                                {{ consultar_reporte[0][3] }}
+                                            </div>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </table>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Todos los derechos reservados.</p>
+    </footer>
+</body>
+
+</html>

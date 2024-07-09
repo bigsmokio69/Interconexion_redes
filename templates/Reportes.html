@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/reportes.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <title>Sistema de reportes LT</title>
+</head>
+<body>
+    <header>
+        <div class="containerh">
+            <section>
+                <a href="{{ url_for('Index') }}"><h2>Inicio sesión</h2></a>
+                <a href="{{ url_for('Mostrar_reporte') }}"><h2>Reportes</h2></a>
+                <a href=""><h2>Ordenes de trabajo</h2></a>
+            </section>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section class="filters">
+            <div class="filter-buttons">
+                <button class="filter-button" onclick="filterByPriority('normal')">Normal</button>
+                <button class="filter-button" onclick="filterByPriority('intermedia')">Intermedia</button>
+                <button class="filter-button" onclick="filterByPriority('urgente')">Urgente</button>
+                <button class="filter-button" onclick="filterByPriority('unassigned')">Sin asignar</button>
+                <button class="filter-button" onclick="showAllReports()">Mostrar Todos</button>
+            </div>
+            <div class="date-filters">
+                <button class="filter-button" onclick="sortByDate('recent')">Más reciente</button>
+                <button class="filter-button" onclick="sortByDate('oldest')">Más antiguo</button>
+                <input type="date" id="specific-date" onchange="filterBySpecificDate()">
+            </div>
+        </section>
+        <section class="reports" id="reports">
+            {% for rpt in reportes %}
+            <div class="report-container">
+                <div class="report unassigned" data-id="{{ rpt.0 }}">
+                    <div class="report-info">
+                        <div class="report-header">
+                            <p><strong>ID:</strong> {{ rpt.0 }}</p>
+                            <p><strong>Laboratorio:</strong> {{ rpt.1 }} </p>
+                            <p><strong>No. Máquina:</strong> {{ rpt.2 }} </p>
+                            <p><strong>Fecha de reporte:</strong> {{ rpt.3 }} </p>
+                        </div>
+                        <p class="report-description preview"> {{ rpt.4 }} </p>
+                        <div class="priority-buttons-bottom">
+                            <button class="priority-button normal" type="button" name="normal">Normal</button>
+                            <button class="priority-button intermediate" type="button" name="intermedia">Intermedia</button>
+                            <button class="priority-button urgent" type="button" name="urgente">Urgente</button>
+                        </div>
+                    </div>
+                    <div class="details-button">
+                        <button>Detalles</button>
+                    </div>
+                </div>
+                <div class="assign-order">
+                    <button>Asignar Orden de Trabajo</button>
+                    <select>
+                        <option>Nombre del trabajador</option>
+                    </select>
+                </div>
+            </div>
+            {% endfor %}
+        </section>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
+
