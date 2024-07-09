@@ -1,0 +1,141 @@
+CREATE DATABASE reportes;
+USE reportes;
+
+CREATE TABLE laboratorios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE maquinas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL,
+    idlaboratorio INT,
+    FOREIGN KEY (idlaboratorio) REFERENCES laboratorios(id)
+);
+
+CREATE TABLE estatus (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE reportes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    matricula VARCHAR(255) NOT NULL,
+    fecha_reporte DATE NOT NULL,
+    idmaquina INT,
+    idlaboratorio INT,
+    idestatus INT,
+    FOREIGN KEY (idmaquina) REFERENCES maquinas(id),
+    FOREIGN KEY (idlaboratorio) REFERENCES laboratorios(id),
+    FOREIGN KEY (idestatus) REFERENCES estatus(id)
+);
+
+CREATE TABLE tipo_usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE empleados (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL,
+    apellido1 VARCHAR(255) NOT NULL,
+    apellido2 VARCHAR(255) NOT NULL,
+    correo VARCHAR(255) NOT NULL,
+    telefono VARCHAR(20) NOT NULL,
+    cargo VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_usuario VARCHAR(255) NOT NULL,
+    contrasenia VARCHAR(255) NOT NULL,
+    idempleado INT,
+    idtipousuario INT,
+    FOREIGN KEY (idempleado) REFERENCES empleados(id),
+    FOREIGN KEY (idtipousuario) REFERENCES tipo_usuarios(id)
+);
+
+CREATE TABLE orden_trabajos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    fecha_orden DATE NOT NULL,
+    idreporte INT,
+    idempleado INT,
+    idestatus INT,
+    FOREIGN KEY (idreporte) REFERENCES reportes(id),
+    FOREIGN KEY (idempleado) REFERENCES empleados(id),
+    FOREIGN KEY (idestatus) REFERENCES estatus(id)
+);
+
+ALTER TABLE reportes
+ADD prioridad VARCHAR(255) NOT NULL;
+
+ALTER TABLE reportes
+ADD descripcion TEXT NOT NULL;
+
+ALTER TABLE reportes
+ADD nombre VARCHAR(255) NOT NULL;
+
+INSERT INTO laboratorios(nombre) VALUES
+	('LT1'),
+    ('LT2');
+
+INSERT INTO empleados(nombre, apellido1,apellido2,correo,telefono,cargo) VALUES
+	('Estrella', 'Aguillon', 'Torrijos', '122043713@upq.edu.mx', '4426804114', 'Encargado'),
+    ('Jorge Emiliano', ' Cortes', 'Sanchez', '122054323@upq.edu.mx', '4444333232','Encargado'),
+	('Gonzalo', 'Uribe', 'Arteaga', '122055433@upq.edu.mx', '4444333532','Becario'),
+	('Katherine', 'Villanueva', 'Garcia', '122076533@upq.edu.mx', '4424563232','Becario'),
+	('Samuel', ' Veytia', 'Lopez', '122009623@upq.edu.mx', '4444676232','Empleado'),
+    ('Samuel', 'Elizalde', 'Barrera', '122009643@upq.edu.mx', '4485376232','Empleado');
+INSERT INTO estatus (nombre) VALUES
+		('Sin revisar'),
+        ('En proceso de solución'),
+        ('Solucionado');
+
+#INSERT INTO orden_trabajos (idreporte,idempleado,idestatus) VALUES
+    #(9,1,1);
+    
+#SELECT * FROM orden_trabajos;
+    
+INSERT INTO maquinas(nombre, idlaboratorio) VALUES
+	('Máquina de corte por láser', 1),
+    ('Torno CNC', 1),
+    ('Fresadora CNC', 1),
+    ('Máquina de electroerosión (EDM)', 1),
+    ('Máquina de inyección de plástico', 1),
+    ('Impresora 3D', 2),
+    ('Línea de ensamblaje automatizada', 2),
+    ('Máquina de corte por chorro de agua', 2),
+    ('Prensa hidráulica', 2),
+    ('Robots industriales', 2);
+    
+   # select * from reportes;
+    
+    # * FROM Usuarios;
+    
+    ALTER TABLE reportes
+	MODIFY COLUMN fecha_reporte DATETIME DEFAULT CURRENT_TIMESTAMP;
+
+INSERT INTO usuarios (nombre_usuario, contrasenia) VALUES ('Estrella', '$2b$12$gRUBSub7yUmMRDRsLDNlBO9Q7MGRoidopT1lTRpzs1g2ybl4dkK0O');
+INSERT INTO usuarios (nombre_usuario, contrasenia) VALUES ('Emiliano', '$2b$12$e1b3.g5Q46X6oyTKzDIzq.zukWGM8h9ehkPj19jUvaTDud12qvRte');
+INSERT INTO usuarios (nombre_usuario, contrasenia) VALUES ('Luis', '$2b$12$lcb6JvM7Cep4R/FfeXZGGO.4Jma777KVEUoTkLb69CHx4jQveaRua');
+
+#SELECT * FROM maquinas;
+#SELECT * FROM reportes;
+
+#DELETE FROM orden_trabajos WHERE idreporte = 1;
+#DELETE FROM reportes WHERE id = 1;
+
+SELECT 
+    r.id AS id_reporte,
+    r.nombre AS nombre_reporte,
+    r.descripcion,
+    CONCAT(e.nombre, ' ', e.apellido1, ' ', e.apellido2) AS 'Nombre de empleado',
+    s.nombre AS estatus_orden
+FROM 
+    reportes r
+JOIN 
+    orden_trabajos ot ON r.id = ot.idreporte
+JOIN 
+    empleados e ON ot.idempleado = e.id
+JOIN 
+    estatus s ON ot.idestatus = s.id;
