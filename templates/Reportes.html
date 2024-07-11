@@ -13,7 +13,7 @@
             <section>
                 <a href="{{ url_for('Index') }}"><h2>Inicio sesión</h2></a>
                 <a href="{{ url_for('Mostrar_reporte') }}"><h2>Reportes</h2></a>
-                <a href=""><h2>Ordenes de trabajo</h2></a>
+                <a href="{{ url_for('MostrarConsultar_ordenes') }}"><h2>Ordenes de trabajo</h2></a>
             </section>
         </div>
     </header>
@@ -58,7 +58,9 @@
                 <div class="assign-order">
                     <button>Asignar Orden de Trabajo</button>
                     <select>
-                        <option>Nombre del trabajador</option>
+                        {%  for emp in empleados %}
+                        <option emp-id="{{ emp.3 }}">{{ emp.0 }} {{ emp.1 }} {{ emp.2 }}</option>
+                        {%  endfor %}
                     </select>
                 </div>
             </div>

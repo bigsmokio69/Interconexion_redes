@@ -1,5 +1,4 @@
-CREATE DATABASE reportes;
-USE reportes;
+use reportes;
 
 CREATE TABLE laboratorios (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -108,10 +107,6 @@ INSERT INTO maquinas(nombre, idlaboratorio) VALUES
     ('Prensa hidráulica', 2),
     ('Robots industriales', 2);
     
-   # select * from reportes;
-    
-    # * FROM Usuarios;
-    
     ALTER TABLE reportes
 	MODIFY COLUMN fecha_reporte DATETIME DEFAULT CURRENT_TIMESTAMP;
 
@@ -119,23 +114,25 @@ INSERT INTO usuarios (nombre_usuario, contrasenia) VALUES ('Estrella', '$2b$12$g
 INSERT INTO usuarios (nombre_usuario, contrasenia) VALUES ('Emiliano', '$2b$12$e1b3.g5Q46X6oyTKzDIzq.zukWGM8h9ehkPj19jUvaTDud12qvRte');
 INSERT INTO usuarios (nombre_usuario, contrasenia) VALUES ('Luis', '$2b$12$lcb6JvM7Cep4R/FfeXZGGO.4Jma777KVEUoTkLb69CHx4jQveaRua');
 
-#SELECT * FROM maquinas;
-#SELECT * FROM reportes;
+#Cambios hechos por EMi
+ALTER TABLE reportes MODIFY COLUMN prioridad VARCHAR(255) DEFAULT 'unassigned';
+ALTER TABLE reportes MODIFY COLUMN idestatus int default 1; 
 
-#DELETE FROM orden_trabajos WHERE idreporte = 1;
-#DELETE FROM reportes WHERE id = 1;
-
-SELECT 
-    r.id AS id_reporte,
-    r.nombre AS nombre_reporte,
-    r.descripcion,
-    CONCAT(e.nombre, ' ', e.apellido1, ' ', e.apellido2) AS 'Nombre de empleado',
-    s.nombre AS estatus_orden
-FROM 
-    reportes r
-JOIN 
-    orden_trabajos ot ON r.id = ot.idreporte
-JOIN 
-    empleados e ON ot.idempleado = e.id
-JOIN 
-    estatus s ON ot.idestatus = s.id;
+#SELECT 
+#                r.id AS id_reporte, 
+#               r.nombre AS nombre_reporte, 
+#                r.descripcion, 
+ #               CONCAT(e.nombre, ' ', e.apellido1, ' ', e.apellido2) AS nombre_completo_empleado, 
+  #              s.nombre AS estatus_orden 
+   #         FROM 
+    #            reportes r 
+     #       JOIN 
+      #          orden_trabajos ot ON r.id = ot.idreporte 
+       #     JOIN 
+        #        empleados e ON ot.idempleado = e.id 
+         #   JOIN 
+          #      estatus s ON ot.idestatus = s.id
+           # WHERE r.id =3 AND r.nombre ='Valeria';
+            
+ALTER TABLE orden_trabajos MODIFY COLUMN fecha_orden DATETIME DEFAULT current_timestamp;
+ALTER TABLE orden_trabajos MODIFY COLUMN idestatus int DEFAULT 2;

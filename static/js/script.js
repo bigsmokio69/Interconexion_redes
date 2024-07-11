@@ -68,13 +68,44 @@ document.addEventListener('DOMContentLoaded', function() {
         }));
     }
 
-    // Event listeners for priority buttons
+    //ENVIAR EN JSON los datos a asignar_reporte
+    function assignReporte(button, empId) {
+        const report = button.closest('.report-container').querySelector('.report');
+        const reportId = report.dataset.id;
+
+        // Send AJAX request to update priority in the database
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', '/asignar_orden', true);
+        xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+        xhr.onload = function() {};
+        xhr.send(JSON.stringify({
+            report_id: reportId,
+            empleado_id: empId
+        }));
+    }
+
+    // Event listeners para botones de prioridad
     document.querySelectorAll('.priority-button').forEach(function(button) {
         button.addEventListener('click', function() {
             const priority = this.name; // Assuming name is 'normal', 'intermediate', or 'urgent'
             assignPriority(this, priority);
         });
     });
+
+
+    //Obtener el ID de empleado del select
+    document.querySelectorAll('.assign-order button').forEach(function(button) {
+        button.addEventListener('click', function() {
+            const assignOrderDiv = this.closest('.assign-order');
+            const select = assignOrderDiv.querySelector('select');
+            const selectedOption = select.options[select.selectedIndex];
+            const empId = selectedOption.getAttribute('emp-id');
+            console.log('EmpleadoID:', empId);
+            assignReporte(this, empId);
+        });
+    });
+
+
 });
 
 

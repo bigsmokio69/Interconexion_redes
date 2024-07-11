@@ -6,7 +6,7 @@ import bcrypt
 app = Flask(__name__)
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'estrella17'
+app.config['MYSQL_PASSWORD'] = 'password'
 app.config['MYSQL_DB'] = 'reportes'
 
 app.secret_key = 'mysecretkey'
@@ -77,12 +77,16 @@ def Mostrar_reporte():
     cursor = mysql.connection.cursor()
     cursor.execute('SELECT r.id, r.idlaboratorio, r.idmaquina, r.fecha_reporte, r.descripcion, r.prioridad FROM reportes r JOIN laboratorios l ON r.idlaboratorio = l.id JOIN maquinas m ON r.idmaquina = m.id;')
     consulta = cursor.fetchall()
-    return render_template('Reportes.html', reportes=consulta)
+    cursor2 = mysql.connection.cursor()
+    cursor2.execute('SELECT e.nombre, e.apellido1, e.apellido2, e.id FROM empleados e;')
+    consulta2 = cursor2.fetchall()
+    return render_template('Reportes.html', reportes=consulta, empleados=consulta2)
 
 @app.route('/asignar_prioridad', methods=['POST'])
 def asignar_prioridad():
     try:
         data = request.get_json()
+        print(data)
         report_id = data.get('report_id')
         priority = data.get('priority')
 
@@ -95,6 +99,26 @@ def asignar_prioridad():
         return jsonify({"message": "Priority updated successfully"})
     except MySQLdb.Error as err:
         error_msg = f"Error al actualizar la prioridad: {err.args[0]} ({err.args[1]})"
+        app.logger.error(error_msg)
+        return jsonify({"message": error_msg}), 500
+    
+@app.route('/asignar_orden', methods=['POST'])
+def asignar_orden():
+    try:
+        data = request.get_json()
+        print(data)
+        report_id = data.get('report_id')
+        empId = data.get('empleado_id')
+        
+        cursor = mysql.connection.cursor()
+        query = "INSERT INTO orden_trabajos (idreporte, idempleado) VALUES (%s, %s)"
+        cursor.execute(query, (report_id, empId))
+        mysql.connection.commit()
+        cursor.close()
+        
+        return jsonify({"message": "Priority updated successfully"})
+    except MySQLdb.Error as err:
+        error_msg = f"Error al crear la orden de trabajo: {err.args[0]} ({err.args[1]})"
         app.logger.error(error_msg)
         return jsonify({"message": error_msg}), 500
 
@@ -132,6 +156,10 @@ def Consultar_reporte():
 @app.route('/MostrarConsultar_reporte')
 def MostrarConsultar_reporte():
     return render_template('Consultar_reportes.html')
+
+@app.route('/MostrarConsultar_ordenes')
+def MostrarConsultar_ordenes():
+    return render_template('Ordenes.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
